@@ -18,7 +18,7 @@ const Profile = () => {
 
   const checkStatus = useCallback(async () => {
     try {
-      const res = await axios.get(`https://attendance-dtable.vercel.app//attendance/face-status?user_id=${email}`);
+      const res = await axios.get(`https://attendance-dtable.vercel.app/attendance/face-status?user_id=${email}`);
       setIsRegistered(res.data.is_registered);
       if (res.data.image) {
         setRegisteredImage(res.data.image);
@@ -47,7 +47,7 @@ const Profile = () => {
     setStatus(null);
     
     try {
-      await axios.post('https://attendance-dtable.vercel.app//attendance/register-face', {
+      await axios.post('https://attendance-dtable.vercel.app/attendance/register-face', {
         user_id: email,
         image: image
       });

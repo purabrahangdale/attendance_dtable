@@ -12,7 +12,7 @@ const AdminPanel = () => {
 
   const fetchTeamHistory = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:8000/attendance/team-history');
+      const response = await axios.get('https://attendance-dtable-qz85y53gd-purabrahangdales-projects.vercel.app//attendance/team-history');
       setTeamHistory(response.data);
     } catch (err) {
       console.error("Failed to fetch team history");
@@ -27,7 +27,7 @@ const AdminPanel = () => {
     if (!query) return;
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:8000/ai/chat', { query });
+      const response = await axios.post('https://attendance-dtable-qz85y53gd-purabrahangdales-projects.vercel.app//ai/chat', { query });
       setAiResponse(response.data.response);
     } catch (err) {
       setAiResponse("Failed to get AI response. Check backend configuration.");
@@ -39,7 +39,7 @@ const AdminPanel = () => {
   const markInvalid = async (userId: string, date: string) => {
     if (!window.confirm("Are you sure you want to mark this attendance as invalid?")) return;
     try {
-      await axios.post('http://localhost:8000/attendance/mark-invalid', { user_id: userId, date });
+      await axios.post('https://attendance-dtable-qz85y53gd-purabrahangdales-projects.vercel.app//attendance/mark-invalid', { user_id: userId, date });
       fetchTeamHistory();
     } catch (err) {
       alert("Failed to mark record as invalid");

@@ -14,7 +14,7 @@ const Login = () => {
     setError('');
     
     try {
-      const response = await axios.post('http://localhost:8000/auth/login', 
+      const response = await axios.post('https://attendance-dtable-qz85y53gd-purabrahangdales-projects.vercel.app//auth/login', 
         new URLSearchParams({
           'username': email,
           'password': password

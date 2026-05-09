@@ -10,7 +10,7 @@ const Overview = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get(`https://attendance-dtable.vercel.app//attendance/history?user_id=${email}`);
+        const res = await axios.get(`https://attendance-dtable.vercel.app/attendance/history?user_id=${email}`);
         const history = res.data;
         const present = history.filter((h: any) => h.status === 'present').length;
         const incomplete = history.filter((h: any) => h.status === 'incomplete').length;

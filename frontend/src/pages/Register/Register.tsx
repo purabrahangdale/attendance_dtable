@@ -36,7 +36,7 @@ const Register = () => {
     setLoading(true);
     
     try {
-      await axios.post('https://attendance-dtable.vercel.app//auth/register', {
+      await axios.post('https://attendance-dtable.vercel.app/auth/register', {
         email,
         full_name: fullName,
         password,

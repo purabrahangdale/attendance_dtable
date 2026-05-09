@@ -1,0 +1,63 @@
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.statCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.green { background-color: #ecfdf5; color: #059669; }
+.yellow { background-color: #fffbeb; color: #d97706; }
+.red { background-color: #fef2f2; color: #dc2626; }
+
+.info p {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.info h3 {
+  font-size: 1.5rem;
+  margin: 0.25rem 0 0 0;
+}
+
+.welcomeCard {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
+}
+
+.welcomeCard h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.welcomeCard p {
+  font-size: 1.125rem;
+  opacity: 0.9;
+}

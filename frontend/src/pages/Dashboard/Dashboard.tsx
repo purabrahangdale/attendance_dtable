@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   const fetchHistory = useCallback(async () => {
     try {
-      const response = await axios.get(`https://attendance-dtable-mpa4rzye7-purabrahangdales-projects.vercel.app/attendance/history?user_id=${email}`);
+      const response = await axios.get(`https://attendance-dtable-h8bbsnq71-purabrahangdales-projects.vercel.app/attendance/history?user_id=${email}`);
       setHistory(response.data);
     } catch (err) {
       console.error("Failed to fetch history");
@@ -45,7 +45,7 @@ const Dashboard = () => {
     setMessage(`Verifying face and punching ${punchType}...`);
 
     try {
-      const response = await axios.post('https://attendance-dtable-mpa4rzye7-purabrahangdales-projects.vercel.app/attendance/punch', {
+      const response = await axios.post('https://attendance-dtable-h8bbsnq71-purabrahangdales-projects.vercel.app/attendance/punch', {
         user_id: email,
         type: punchType,
         location: {

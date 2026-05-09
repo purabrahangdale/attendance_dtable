@@ -14,7 +14,7 @@ const Login = () => {
     setError('');
     
     try {
-      const response = await axios.post('https://attendance-dtable.vercel.app/auth/login', 
+      const response = await axios.post('https://attendance-dtable-mpa4rzye7-purabrahangdales-projects.vercel.app/auth/login', 
         new URLSearchParams({
           'username': email,
           'password': password

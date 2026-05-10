@@ -23,7 +23,7 @@ const Punch = () => {
 
     const checkFaceStatus = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/attendance/face-status?user_id=${email}`);
+        const res = await axios.get(`http://attendancedtable-production.up.railway.app/attendance/face-status?user_id=${email}`);
         setIsRegistered(res.data.is_registered);
       } catch (err) {
         console.error("Failed to check face status");
@@ -45,7 +45,7 @@ const Punch = () => {
     setMessage(`Verifying face and punching ${punchType}...`);
 
     try {
-      const response = await axios.post('http://localhost:8000/attendance/punch', {
+      const response = await axios.post('http://attendancedtable-production.up.railway.app/attendance/punch', {
         user_id: email,
         type: punchType,
         location: {

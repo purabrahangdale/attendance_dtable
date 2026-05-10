@@ -10,7 +10,7 @@ const Reports = () => {
 
   const fetchHistory = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/attendance/history?user_id=${email}`);
+      const response = await axios.get(`http://attendancedtable-production.up.railway.app/attendance/history?user_id=${email}`);
       setHistory(response.data);
     } catch (err) {
       console.error("Failed to fetch history");

@@ -18,7 +18,7 @@ const Profile = () => {
 
   const checkStatus = useCallback(async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/attendance/face-status?user_id=${email}`);
+      const res = await axios.get(`http://attendancedtable-production.up.railway.app/attendance/face-status?user_id=${email}`);
       setIsRegistered(res.data.is_registered);
       if (res.data.image) {
         setRegisteredImage(res.data.image);
@@ -47,7 +47,7 @@ const Profile = () => {
     setStatus(null);
     
     try {
-      await axios.post('http://localhost:8000/attendance/register-face', {
+      await axios.post('http://attendancedtable-production.up.railway.app/attendance/register-face', {
         user_id: email,
         image: image
       });

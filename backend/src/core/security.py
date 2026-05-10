@@ -17,7 +17,9 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     return encoded_jwt
 
 def verify_password(plain_password: str, hashed_password: str):
-    return pwd_context.verify(plain_password, hashed_password)
+    # Bcrypt has a 72-character limit, truncate to avoid errors
+    return pwd_context.verify(plain_password[:72], hashed_password)
 
 def get_password_hash(password: str):
-    return pwd_context.hash(password)
+    # Bcrypt has a 72-character limit, truncate to avoid errors
+    return pwd_context.hash(password[:72])

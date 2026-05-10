@@ -1,24 +1,26 @@
-FROM python:3.10-slim
+FROM python:3.11-slim
 
-WORKDIR /app
-
+# Install system deps for dlib / face_recognition / opencv
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
+    libopenblas-dev \
+    liblapack-dev \
+    libx11-dev \
+    libgtk-3-dev \
+    libboost-python-dev \
+    libboost-thread-dev \
     libgl1 \
     libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender-dev \
-    libx11-6 \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
+WORKDIR /app
 
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY src/ ./src/
 
-EXPOSE 8080
+EXPOSE 8000
 
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]

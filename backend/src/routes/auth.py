@@ -20,7 +20,16 @@ async def register(user_in: UserCreate):
     if user_in.image:
         encoding = face_service.get_face_encoding(user_in.image)
         if not encoding:
-            raise HTTPException(status_code=400, detail="No face detected in the registration image")
+            from src.services.face_service import FACE_RECOGNITION_AVAILABLE
+            if not FACE_RECOGNITION_AVAILABLE:
+                raise HTTPException(
+                    status_code=500, 
+                    detail="Face recognition engine (dlib) is not available on the server. Attendance features will not work."
+                )
+            raise HTTPException(
+                status_code=400, 
+                detail="No face detected in the registration image. Please ensure your face is clearly visible and well-lit."
+            )
 
     # Create new user
     user_dict = user_in.dict()

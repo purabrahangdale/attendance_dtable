@@ -14,7 +14,7 @@ function App() {
   const userRole = localStorage.getItem('role');
 
   return (
-    <Router basename="/attendance_dtable/">
+    <Router>
       <Routes>
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />

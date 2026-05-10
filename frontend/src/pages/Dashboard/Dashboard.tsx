@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   const fetchHistory = useCallback(async () => {
     try {
-      const response = await axios.get(`https://attendancedtable-production.up.railway.app/attendance/history?user_id=${email}`);
+      const response = await axios.get(`http://localhost:8000/attendance/history?user_id=${email}`);
       setHistory(response.data);
     } catch (err) {
       console.error("Failed to fetch history");
@@ -45,7 +45,7 @@ const Dashboard = () => {
     setMessage(`Verifying face and punching ${punchType}...`);
 
     try {
-      const response = await axios.post('https://attendancedtable-production.up.railway.app/attendance/punch', {
+      const response = await axios.post('http://localhost:8000/attendance/punch', {
         user_id: email,
         type: punchType,
         location: {

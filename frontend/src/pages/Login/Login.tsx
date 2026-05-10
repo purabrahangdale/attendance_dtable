@@ -14,7 +14,7 @@ const Login = () => {
     setError('');
     
     try {
-      const response = await axios.post('attendancedtable-production.up.railway.appauth/login', 
+      const response = await axios.post('https://attendancedtable-production.up.railway.app/auth/login', 
         new URLSearchParams({
           'username': email,
           'password': password

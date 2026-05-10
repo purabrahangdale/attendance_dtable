@@ -12,7 +12,7 @@ const AdminPanel = () => {
 
   const fetchTeamHistory = useCallback(async () => {
     try {
-      const response = await axios.get('attendancedtable-production.up.railway.appattendance/team-history');
+      const response = await axios.get('https://attendancedtable-production.up.railway.app/attendance/team-history');
       setTeamHistory(response.data);
     } catch (err) {
       console.error("Failed to fetch team history");
@@ -27,7 +27,7 @@ const AdminPanel = () => {
     if (!query) return;
     setLoading(true);
     try {
-      const response = await axios.post('attendancedtable-production.up.railway.appai/chat', { query });
+      const response = await axios.post('https://attendancedtable-production.up.railway.app/ai/chat', { query });
       setAiResponse(response.data.response);
     } catch (err) {
       setAiResponse("Failed to get AI response. Check backend configuration.");
@@ -39,7 +39,7 @@ const AdminPanel = () => {
   const markInvalid = async (userId: string, date: string) => {
     if (!window.confirm("Are you sure you want to mark this attendance as invalid?")) return;
     try {
-      await axios.post('attendancedtable-production.up.railway.appattendance/mark-invalid', { user_id: userId, date });
+      await axios.post('https://attendancedtable-production.up.railway.app/attendance/mark-invalid', { user_id: userId, date });
       fetchTeamHistory();
     } catch (err) {
       alert("Failed to mark record as invalid");

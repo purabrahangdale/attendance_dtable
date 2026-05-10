@@ -33,7 +33,7 @@ const AIChat = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post('attendancedtable-production.up.railway.appai/chat', { query: userMsg });
+      const res = await axios.post('https://attendancedtable-production.up.railway.app/ai/chat', { query: userMsg });
       setMessages(prev => [...prev, { role: 'assistant', content: res.data.response }]);
     } catch (err) {
       setMessages(prev => [...prev, { role: 'assistant', content: "Sorry, I'm having trouble connecting right now. Please check your internet or try again later." }]);

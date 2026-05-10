@@ -10,7 +10,7 @@ const Reports = () => {
 
   const fetchHistory = useCallback(async () => {
     try {
-      const response = await axios.get(`https://attendance-dtable.vercel.app/attendance/history?user_id=${email}`);
+      const response = await axios.get(`attendancedtable-production.up.railway.appattendance/history?user_id=${email}`);
       setHistory(response.data);
     } catch (err) {
       console.error("Failed to fetch history");
